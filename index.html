@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby Names with Meanings | Indian Baby Name Directory</title>
+  <meta name="description" content="Search Indian baby names for boys and girls with meanings and origins.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Indian Baby Names & Meanings</h1>
+    <p>Search names for boys and girls, with meanings and origins.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <input type="search" id="search" placeholder="Search a name or meaning (e.g. sun, Aarav)">
+      <div class="filters">
+        <button class="filter active" data-gender="all">All</button>
+        <button class="filter" data-gender="boy">Boys</button>
+        <button class="filter" data-gender="girl">Girls</button>
+      </div>
+    </section>
+
+    <p id="count" class="count"></p>
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </main>
+
+  <footer>
+    <p>Meanings are commonly cited traditional interpretations, shared for cultural interest.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

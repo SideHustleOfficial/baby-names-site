@@ -1,0 +1,22 @@
+[
+  { "name": "Aarav", "gender": "boy", "origin": "Sanskrit", "meaning": "Peaceful, calm" },
+  { "name": "Arjun", "gender": "boy", "origin": "Sanskrit", "meaning": "Bright, white, silver" },
+  { "name": "Vihaan", "gender": "boy", "origin": "Sanskrit", "meaning": "Dawn, the beginning of the day" },
+  { "name": "Aditya", "gender": "boy", "origin": "Sanskrit", "meaning": "Sun" },
+  { "name": "Advait", "gender": "boy", "origin": "Sanskrit", "meaning": "Unique, one without a second" },
+  { "name": "Ishaan", "gender": "boy", "origin": "Sanskrit", "meaning": "Sun, a name of Lord Shiva" },
+  { "name": "Kabir", "gender": "boy", "origin": "Arabic", "meaning": "Great, important" },
+  { "name": "Rohan", "gender": "boy", "origin": "Sanskrit", "meaning": "Ascending, rising" },
+  { "name": "Shaurya", "gender": "boy", "origin": "Sanskrit", "meaning": "Bravery, valour" },
+  { "name": "Veer", "gender": "boy", "origin": "Sanskrit", "meaning": "Brave, courageous" },
+  { "name": "Ved", "gender": "boy", "origin": "Sanskrit", "meaning": "Knowledge, wisdom" },
+  { "name": "Ananya", "gender": "girl", "origin": "Sanskrit", "meaning": "Unique, matchless" },
+  { "name": "Diya", "gender": "girl", "origin": "Sanskrit", "meaning": "Lamp, light" },
+  { "name": "Aadhya", "gender": "girl", "origin": "Sanskrit", "meaning": "First, the primordial power" },
+  { "name": "Meera", "gender": "girl", "origin": "Sanskrit", "meaning": "Devoted to God" },
+  { "name": "Saanvi", "gender": "girl", "origin": "Sanskrit", "meaning": "Another name of goddess Lakshmi" },
+  { "name": "Kavya", "gender": "girl", "origin": "Sanskrit", "meaning": "Poetry, poetic" },
+  { "name": "Tara", "gender": "girl", "origin": "Sanskrit", "meaning": "Star" },
+  { "name": "Nisha", "gender": "girl", "origin": "Sanskrit", "meaning": "Night" },
+  { "name": "Pari", "gender": "girl", "origin": "Persian", "meaning": "Fairy, angel" }
+]
