@@ -3,34 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby Names with Meanings | Indian Baby Name Directory</title>
-  <meta name="description" content="Search Indian baby names for boys and girls with meanings and origins.">
+  <title>Indian Baby Names & Meanings</title>
+  <meta name="description" content="Search Indian baby names for boys and girls with meanings and origins. Save favourites and find your name of the day.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Indian Baby Names & Meanings</h1>
-    <p>Search names for boys and girls, with meanings and origins.</p>
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+
+  <header class="hero">
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+    <h1>Indian Baby Names <span>&amp;</span> Meanings</h1>
+    <p>Discover names for boys and girls, with meanings and origins.</p>
+
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" placeholder="Search a name or meaning, e.g. sun, Aarav">
+    </div>
   </header>
 
   <main>
-    <section class="controls">
-      <input type="search" id="search" placeholder="Search a name or meaning (e.g. sun, Aarav)">
-      <div class="filters">
-        <button class="filter active" data-gender="all">All</button>
-        <button class="filter" data-gender="boy">Boys</button>
-        <button class="filter" data-gender="girl">Girls</button>
+    <section class="banner" id="banner"></section>
+
+    <section class="toolbar">
+      <div class="seg" role="group" aria-label="Filter by gender">
+        <button class="seg-btn active" data-gender="all">All</button>
+        <button class="seg-btn" data-gender="boy">Boys</button>
+        <button class="seg-btn" data-gender="girl">Girls</button>
+        <button class="seg-btn" data-gender="fav">♥ Saved <span id="fav-count">0</span></button>
+      </div>
+
+      <div class="toolbar-right">
+        <select id="sort" aria-label="Sort names">
+          <option value="az">A to Z</option>
+          <option value="za">Z to A</option>
+        </select>
+        <button id="random" class="pill-btn">🎲 Random name</button>
       </div>
     </section>
+
+    <nav class="letters" id="letters" aria-label="Filter by first letter"></nav>
 
     <p id="count" class="count"></p>
     <section id="grid" class="grid" aria-live="polite"></section>
   </main>
 
   <footer>
-    <p>Meanings are commonly cited traditional interpretations, shared for cultural interest.</p>
+    <p>Meanings are commonly cited traditional interpretations, shared for cultural interest. They vary by tradition and region.</p>
   </footer>
 
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="data/names.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
