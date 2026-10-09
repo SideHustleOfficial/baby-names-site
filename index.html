@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indian Baby Names & Meanings</title>
-  <meta name="description" content="Search Indian baby names for boys and girls with meanings and origins. Save favourites and find your name of the day.">
+  <meta name="description" content="Search Indian baby names for boys and girls with meanings and origins. Save favourites, find names by theme, and take the name finder quiz.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extra.css">
 </head>
 <body>
   <div class="bg-blob blob-1"></div>
@@ -42,10 +43,63 @@
       </div>
     </section>
 
+    <div class="controls-row">
+      <label>Syllables
+        <select id="syll" aria-label="Number of syllables">
+          <option value="any">Any</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4 or more</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="vowel"> Starts with a vowel</label>
+    </div>
+
+    <nav class="chips" id="origins" aria-label="Filter by origin"></nav>
+    <nav class="chips" id="collections" aria-label="Filter by theme"></nav>
     <nav class="letters" id="letters" aria-label="Filter by first letter"></nav>
 
     <p id="count" class="count"></p>
     <section id="grid" class="grid" aria-live="polite"></section>
+
+    <section class="tools">
+      <div class="tool-card">
+        <h2>🔍 Name finder quiz</h2>
+        <p class="hint">Answer three questions and get suggestions.</p>
+        <form id="quiz-form">
+          <select name="feel" aria-label="What should the name feel like?">
+            <option value="light">Bright and shining</option>
+            <option value="nature">Connected to nature</option>
+            <option value="goddess">Inspired by goddesses</option>
+            <option value="divine">Spiritual or divine</option>
+            <option value="strength">Strong and brave</option>
+            <option value="calm">Calm and gentle</option>
+          </select>
+          <select name="gender" aria-label="Gender">
+            <option value="any">Any gender</option>
+            <option value="boy">Boy</option>
+            <option value="girl">Girl</option>
+          </select>
+          <select name="origin" aria-label="Origin">
+            <option value="any">Any origin</option>
+          </select>
+          <button type="submit" class="go-btn">Find names</button>
+        </form>
+        <div id="quiz-result" class="result"></div>
+      </div>
+
+      <div class="tool-card">
+        <h2>💞 Combine two names</h2>
+        <p class="hint">Type a first and middle name from the list to see them together.</p>
+        <div class="stack">
+          <input type="text" id="combo-first" placeholder="First name, e.g. Aarav">
+          <input type="text" id="combo-middle" placeholder="Middle name, e.g. Ishaan">
+          <button id="combo-btn" class="go-btn" type="button">Combine</button>
+        </div>
+        <div id="combo-result" class="result"></div>
+      </div>
+    </section>
   </main>
 
   <footer>
