@@ -1,3 +1,49 @@
+// ============================================================
+// NAME LIST: add or edit names here.
+// Format: { name, gender: "boy" | "girl", origin, meaning }
+// Meanings are commonly cited traditional interpretations. Verify before publishing.
+// ============================================================
+const NAMES = [
+  { name: "Aarav", gender: "boy", origin: "Sanskrit", meaning: "Peaceful, calm" },
+  { name: "Arjun", gender: "boy", origin: "Sanskrit", meaning: "Bright, white, silver" },
+  { name: "Vihaan", gender: "boy", origin: "Sanskrit", meaning: "Dawn, the beginning of the day" },
+  { name: "Aditya", gender: "boy", origin: "Sanskrit", meaning: "Sun" },
+  { name: "Advait", gender: "boy", origin: "Sanskrit", meaning: "Unique, one without a second" },
+  { name: "Ishaan", gender: "boy", origin: "Sanskrit", meaning: "Sun, a name of Lord Shiva" },
+  { name: "Kabir", gender: "boy", origin: "Arabic", meaning: "Great, important" },
+  { name: "Rohan", gender: "boy", origin: "Sanskrit", meaning: "Ascending, rising" },
+  { name: "Shaurya", gender: "boy", origin: "Sanskrit", meaning: "Bravery, valour" },
+  { name: "Veer", gender: "boy", origin: "Sanskrit", meaning: "Brave, courageous" },
+  { name: "Ved", gender: "boy", origin: "Sanskrit", meaning: "Knowledge, wisdom" },
+  { name: "Yash", gender: "boy", origin: "Sanskrit", meaning: "Fame, success, glory" },
+  { name: "Dhruv", gender: "boy", origin: "Sanskrit", meaning: "Pole star, steadfast" },
+  { name: "Pranav", gender: "boy", origin: "Sanskrit", meaning: "The sacred syllable Om" },
+  { name: "Laksh", gender: "boy", origin: "Sanskrit", meaning: "Aim, goal, target" },
+  { name: "Reyansh", gender: "boy", origin: "Sanskrit", meaning: "Ray of the sun" },
+  { name: "Dev", gender: "boy", origin: "Sanskrit", meaning: "God, divine" },
+  { name: "Neel", gender: "boy", origin: "Sanskrit", meaning: "Blue" },
+  { name: "Mohan", gender: "boy", origin: "Sanskrit", meaning: "Charming, attractive" },
+  { name: "Ananya", gender: "girl", origin: "Sanskrit", meaning: "Unique, matchless" },
+  { name: "Diya", gender: "girl", origin: "Sanskrit", meaning: "Lamp, light" },
+  { name: "Aadhya", gender: "girl", origin: "Sanskrit", meaning: "First, the primordial power" },
+  { name: "Meera", gender: "girl", origin: "Sanskrit", meaning: "Devoted to God" },
+  { name: "Saanvi", gender: "girl", origin: "Sanskrit", meaning: "Another name of goddess Lakshmi" },
+  { name: "Kavya", gender: "girl", origin: "Sanskrit", meaning: "Poetry, poetic" },
+  { name: "Tara", gender: "girl", origin: "Sanskrit", meaning: "Star" },
+  { name: "Nisha", gender: "girl", origin: "Sanskrit", meaning: "Night" },
+  { name: "Pari", gender: "girl", origin: "Persian", meaning: "Fairy, angel" },
+  { name: "Priya", gender: "girl", origin: "Sanskrit", meaning: "Beloved, dear" },
+  { name: "Lavanya", gender: "girl", origin: "Sanskrit", meaning: "Grace, beauty" },
+  { name: "Shreya", gender: "girl", origin: "Sanskrit", meaning: "Auspicious, excellence" },
+  { name: "Gauri", gender: "girl", origin: "Sanskrit", meaning: "Fair, radiant, a name of Parvati" },
+  { name: "Nandini", gender: "girl", origin: "Sanskrit", meaning: "Daughter, joy, delight" },
+  { name: "Ishita", gender: "girl", origin: "Sanskrit", meaning: "Desire, wish" },
+  { name: "Anvi", gender: "girl", origin: "Sanskrit", meaning: "Goddess Durga" }
+];
+
+// ============================================================
+// DOM references
+// ============================================================
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
 const count = document.getElementById("count");
@@ -81,7 +127,7 @@ function toggleFav(name) {
   render();
 }
 
-// ---------- Name of the day (same name all day, changes daily) ----------
+// ---------- Name of the day (changes daily) ----------
 function renderNameOfDay() {
   if (!NAMES.length) return;
   const now = new Date();
@@ -106,16 +152,14 @@ function renderNameOfDay() {
   bannerEl.append(label, text);
 }
 
-// ---------- Letters ----------
+// ---------- Letter bar ----------
 function renderLetters() {
   const available = new Set(NAMES.map((n) => n.name[0].toUpperCase()));
   lettersNav.innerHTML = "";
 
   const allBtn = document.createElement("button");
-  allBtn.className = "letter" + (state.letter === "all" ? " active" : "");
+  allBtn.className = "letter all-btn" + (state.letter === "all" ? " active" : "");
   allBtn.textContent = "All";
-  allBtn.style.width = "auto";
-  allBtn.style.padding = "0 0.7rem";
   allBtn.addEventListener("click", () => { state.letter = "all"; render(); });
   lettersNav.appendChild(allBtn);
 
@@ -174,14 +218,12 @@ function makeCard(item) {
   return card;
 }
 
-// ---------- Main render ----------
+// ---------- Filtering and rendering ----------
 function getFiltered() {
   const q = state.query.trim().toLowerCase();
 
-  let list = NAMES.filter((item) => {
-    if (state.gender === "boy" || state.gender === "girl") {
-      if (item.gender !== state.gender) return false;
-    }
+  const list = NAMES.filter((item) => {
+    if ((state.gender === "boy" || state.gender === "girl") && item.gender !== state.gender) return false;
     if (state.gender === "fav" && !favs.includes(item.name)) return false;
     if (state.letter !== "all" && item.name[0].toUpperCase() !== state.letter) return false;
     if (q) {
